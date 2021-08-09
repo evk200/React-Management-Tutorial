@@ -597,7 +597,7 @@ var positions = [
         title: '세종', 
         latlng: new kakao.maps.LatLng(36.624713328513515, 127.236999917502),
         number: $(this).find("defCnt:eq(10)").text()
-    }
+    } 
 ];
 
 // 마커 이미지의 이미지 주소입니다
