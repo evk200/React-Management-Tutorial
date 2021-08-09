@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script> 
+         <script>
+			function q1() {
+				$.ajax({
+				type: "GET",
+				url: "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=M6guS00P8zgT8wt1ZMT046pT31ScEpk8tFfEtq%2F%2FwPhlL6eTqZMT2dZ03YL5s4Me4SwczTtfNt%2F04A436e0p1A%3D%3D&returnType=json&numOfRows=100&pageNo=1&sidoName=%EC%A0%84%EB%B6%81&ver=1.0",
+				data: {},
+				success: function(response){
+					$("#names-q1").empty(); //화면에 출력 전에 지워주는 코드
+					let mise = response["response"]["body"]["items"]; //url에서 가지고 온 데이터 중 row 리스트 데이터만 뽑아 mise 변수에 넣음
+					for(let i = 0; i < mise.length; i++){ //반복문으로 mise 변수에 있는 구 이름, 미세먼지 데이터 값을 변수에 넣고 출력하는 반복문 
+						let sido_name = mise[i]["sidoName"];
+						let st_name = mise[i]["stationName"];
+						let pm_value = mise[i]["pm10Value"];
+
+						let str_mise = ``;
+						if(pm_value >= 50){
+							if(pm_value == '-') {
+								str_mise = `<li class="red">${sido_name} : ${st_name} : 장비점검</li>`;
+							}else
+							str_mise = `<li class="red">${sido_name} : ${st_name} : ${pm_value}</li>`;
+						}else {
+							if(pm_value == '-') {
+								str_mise = `<li class="red">${sido_name} : ${st_name} : 장비점검</li>`;
+							}else
+							str_mise = `<li class="blue">${sido_name} : ${st_name} : ${pm_value}</li>`;
+						}
+						$("#names-q1").append(str_mise);
+					}
+				console.log(response)
+			}
+			})
+			}
+    </script>
+	<script>
+		q1()
+	</script>
+	<style>
+		#names-q1 > li {
+			list-style:none;
+			border:1px solid white;
+			width:300px;
+			text-align:center;
+			background:#BDBDBD;
+			font-size:20px;
+		}
+	</style>
+        <title>JSON Sample with jQuery</title>
+    </head>
+ 
+    <body>
+        <h1>웹 페이지에 나타내보기.</h1>
+
+    <hr />
+
+    <div class="question-box">
+        <h2>1. 서울시 OpenAPI(실시간 미세먼지 상태)를 이용</h2>
+        <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 한다.</p>
+        
+        <ul id="names-q1">
+        </ul>
+    </div>
+    </body>
+</html>

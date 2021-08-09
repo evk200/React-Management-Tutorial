@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>테스트</title>
+        <style>
+            #covid > table {
+                border:1px solid black;
+            }
+            
+            th , td {
+                border:1px solid black;
+                text-align:center;
+            }
+            table {
+                border-collapse:collapse;
+                width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="covid"></div>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script> 
+        <script>
+           
+            $(document).ready(function(){
+
+                $.ajax({
+
+                    url: "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=0OhBU7ZCGIobDVKDeBJDpmDRqK3IRNF6jlf%2FJB2diFAf%2FfR2czYO9A4UTGcsOwppV6W2HVUeho%2FFPwXoL6DwqA%3D%3D&pageNo=1&numOfRows=10&startCreateDt=20210805&endCreateDt=20210805",              //ajax로 ajax_xml.xml파일을 불러온다.
+
+                    cache: false,                     //사용자캐시를 사용할 것인가.
+
+                    dataType: "xml",                  //서버로부터 받을 것으로 예상되는 데이터 타입.
+
+                    success: function(data){          //ajax요청을 통해 반환되는 데이터 data.
+
+                        $(data).find("items").each(function(){
+                            var insertTb = "";
+                            insertTb += "<h1>확진자 수</h1>";
+                            insertTb += "<table>";
+                            insertTb += "<tr>";
+                            insertTb += "<th>"+$(this).find("gubun:eq(1)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(2)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(3)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(4)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(5)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(6)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(7)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(8)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(9)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(10)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(11)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(12)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(13)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(14)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(15)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(16)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(17)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(18)").text();+"</th>"
+                            insertTb += "</tr>";
+                            insertTb += "<tr>";
+                            insertTb += "<td>"+$(this).find("defCnt:eq(1)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(2)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(3)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(4)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(5)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(6)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(7)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(8)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(9)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(10)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(11)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(12)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(13)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(14)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(15)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(16)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(17)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("defCnt:eq(18)").text();+"</td>"
+                            insertTb += "</tr>";
+                            insertTb += "</table>";    
+                            
+                            insertTb += "<h1>격리중 환자 수</h1>";
+                            insertTb += "<table>";
+                            insertTb += "<tr>";
+                            insertTb += "<th>"+$(this).find("gubun:eq(1)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(2)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(3)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(4)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(5)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(6)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(7)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(8)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(9)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(10)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(11)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(12)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(13)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(14)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(15)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(16)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(17)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(18)").text();+"</th>"
+                            insertTb += "</tr>";
+                            insertTb += "<tr>";
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(1)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(2)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(3)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(4)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(5)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(6)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(7)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(8)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(9)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(10)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(11)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(12)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(13)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(14)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(15)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(16)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(17)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolIngCnt:eq(18)").text();+"</td>"
+                            insertTb += "</tr>";
+                            insertTb += "</table>";
+
+                            insertTb += "<h1>격리 해제 수</h1>";
+                            insertTb += "<table>";
+                            insertTb += "<tr>";
+                            insertTb += "<th>"+$(this).find("gubun:eq(1)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(2)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(3)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(4)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(5)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(6)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(7)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(8)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(9)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(10)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(11)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(12)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(13)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(14)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(15)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(16)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(17)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(18)").text();+"</th>"
+                            insertTb += "</tr>";
+                            insertTb += "<tr>";
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(1)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(2)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(3)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(4)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(5)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(6)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(7)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(8)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(9)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(10)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(11)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(12)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(13)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(14)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(15)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(16)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(17)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("isolClearCnt:eq(18)").text();+"</td>"
+                            insertTb += "</tr>";
+                            insertTb += "</table>";
+
+                            insertTb += "<h1>사망자 수</h1>";
+                            insertTb += "<table>";
+                            insertTb += "<tr>";
+                            insertTb += "<th>"+$(this).find("gubun:eq(1)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(2)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(3)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(4)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(5)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(6)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(7)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(8)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(9)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(10)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(11)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(12)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(13)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(14)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(15)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(16)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(17)").text();+"</th>"
+                            insertTb += "<th>"+$(this).find("gubun:eq(18)").text();+"</th>"
+                            insertTb += "</tr>";
+                            insertTb += "<tr>";
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(1)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(2)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(3)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(4)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(5)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(6)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(7)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(8)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(9)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(10)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(11)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(12)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(13)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(14)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(15)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(16)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(17)").text();+"</td>"
+                            insertTb += "<td>"+$(this).find("deathCnt:eq(18)").text();+"</td>"
+                            insertTb += "</tr>";
+                            insertTb += "</table>";
+                           
+                            $('#covid').append(insertTb);
+                        });
+
+                    }
+
+                });
+
+            });
+        </script>
+    </body>
+</html>
