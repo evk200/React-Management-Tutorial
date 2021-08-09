@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>코로나19 확진자 정보</title>
+        <link href="titlelogo.png" rel="shortcut icon" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="covid.css">
+    </head>
+    <body>
+        <div class="container" id="myAnchor">
+            <a href="#myAnchor" class="go-top">▲</a>
+            <!--The Hamburger Button in the Header-->
+            <header>
+                <div id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </header>
+            <br><br>   
+            <a href="covid.html"><img src="http://daoninfo.com/images/common/fixed_logo.png"></a>
+            <br><br>
+            <h1 class="text-danger">코로나19 (Covid19) 확진자 정보</h1>
+            <br><br><br><br>
+            <!-- 내비 메뉴 -->
+            <div id="masterdiv">
+                <div class="menutitle">
+                    <a href="covid.html">HOME</a>
+                </div>
+                <div class="menutitle" \>
+                    <a href="#" id="confirmedcase">확진자 현황</a>
+                </div>
+                <div class="menutitle">
+                    <a href="#" id="Chart">chart</a>
+                </div>
+                <div>
+                    전국 확진자 수<br>
+                    <span id="entire"></span>
+                </div>
+            </div>
+            <div id="contentLayer"></div>
+            <div class="row" id="content">
+                <div class="area1 col-md-4"></div>
+                <div class="area2 col-md-4" id="map"></div>
+                <div class="area3 col-md-8">
+                    <canvas id="myChart2" width:"50vw" height:"20vh"></canvas>
+                </div>
+            </div>
+            
+
+            <!--The mobile navigation Markup hidden via css-->
+            <nav>
+                <ul>
+                    <li><a href="covid.html">HOME</a></li>
+                    <li><a href="#" id="m_confirmedcase">확진자 현황</a></li>
+                    <li><a href="#" id="m_Chart">Chart</a></li>
+                    <li>전국 코로나 확진자 수 : <span id="entire2"></span></li>
+                </ul>
+            </nav>
+            <div class="Nationwide">
+                <p id="Close_X">X</p>
+                <div id="covid"></div>
+            </div>
+            <div class="Chart">
+                <p id="Close_X2">X</p>
+                <canvas id="myChart" width:"50vw" height:"20vh"></canvas>
+            </div>
+        </div>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script> 
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8ec0b97d55482757af9dc7294cf060f"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script type="text/javascript" src="covid.js"></script>
+    </body>
+</html>

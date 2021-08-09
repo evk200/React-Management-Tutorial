@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>게시판</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $(".dropdown").on("show.bs.dropdown", function(event){
+                var x = $(event.relatedTarget).text(); // Get the button text
+                alert("You clicked on: " + x);
+            });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <h1 class="text-center"><a href="#">Cha4ser's Free Board!</a></h1>
+            <br>
+            <table class="table table-hover table-striped text-center" style="border:1px solid;">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Title_1</td>
+                        <td>Cha4ser</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Title_2</td>
+                        <td>Cha4ser</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Title_3!</td>
+                        <td>Cha4ser</td>
+                        <td>12</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div>
+            <ul class="pagination justify-content-center">
+                <li><a href="#" style="margin-right:5px;" class="text-secondary">◀</a></li>
+                <li><a href="#" style="margin-right:5px;" class="text-secondary">1</a></li>
+                <li><a href="#" style="margin-right:5px;" class="text-secondary">2</a></li>
+                <li><a href="#" style="margin-right:5px;" class="text-secondary">3</a></li>
+                <li><a href="#" style="margin-right:5px;" class="text-secondary">4</a></li>
+                <li><a href="#" style="margin-right:5px;" class="text-secondary">5</a></li>
+                <li><a href="#" style="margin-right:5px;" class="text-secondary">▶</a></li>
+            </ul>
+        </div>
+        <a class="btn btn-outline-info float-right dropdown-toggle" data-toggle="dropdown">글쓰기</a>
+        <div class="dropdown-menu">
+           <a class="dropdown-item" href="#">Link 1</a>
+           <a class="dropdown-item" href="#">Link 2</a>
+           <a class="dropdown-item" href="#">Link 3</a>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
